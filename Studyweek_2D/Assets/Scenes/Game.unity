@@ -242,6 +242,7 @@ MonoBehaviour:
   log: {fileID: 21300000, guid: 6d6395bb6cbe2664d8ce27261ce514bb, type: 3}
   leaf: {fileID: 21300000, guid: ebc166c0bb6405c4e97cf5984fa17c91, type: 3}
   generateCaves: 1
+  treeChance: 15
   dirtLayerHeigt: 5
   surfaceValue: 0.25
   heightMultiplier: 30
