@@ -241,8 +241,11 @@ MonoBehaviour:
   grass: {fileID: 21300000, guid: 35e6b5f9ae0f3ff4bacdb8986c23875d, type: 3}
   log: {fileID: 21300000, guid: 6d6395bb6cbe2664d8ce27261ce514bb, type: 3}
   leaf: {fileID: 21300000, guid: ebc166c0bb6405c4e97cf5984fa17c91, type: 3}
-  generateCaves: 1
   treeChance: 15
+  minTreeHeight: 3
+  maxTreeHeight: 6
+  chunkSize: 20
+  generateCaves: 1
   dirtLayerHeigt: 5
   surfaceValue: 0.25
   heightMultiplier: 30
@@ -252,6 +255,8 @@ MonoBehaviour:
   terrainFreq: 0.04
   seed: 0
   noiseTexture: {fileID: 0}
+  worldChunks: []
+  worldTiles: []
 --- !u!4 &815398394
 Transform:
   m_ObjectHideFlags: 0
