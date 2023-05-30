@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 5127266d289c0254fa4e6ef9d7c7f1d1
+guid: 375f3c80dd82a1d438706dd799a9c4d3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - tileAtlas: {fileID: 11400000, guid: f031939333589234487fb1e49d7c51b6, type: 2}
-  - noiseTexture: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

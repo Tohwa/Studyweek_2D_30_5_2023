@@ -6,12 +6,8 @@ using UnityEngine;
 public class TerrainGeneration : MonoBehaviour
 {
     #region Fields
-    [Header("Tile Sprites")]
-    [SerializeField] private Sprite stone;
-    [SerializeField] private Sprite dirt;
-    [SerializeField] private Sprite grass;
-    [SerializeField] private Sprite log;
-    [SerializeField] private Sprite leaf;
+    [Header("Tile Atlas")]
+    public TileAtlas tileAtlas;
 
     [Header("Trees")]
     [SerializeField] private int treeChance = 10;
@@ -33,8 +29,8 @@ public class TerrainGeneration : MonoBehaviour
     [SerializeField] private float seed;
     [SerializeField] private Texture2D noiseTexture;
 
-    [SerializeField] private GameObject[] worldChunks;
-    [SerializeField] private List<Vector2> worldTiles = new List<Vector2>();
+    private GameObject[] worldChunks;
+    private List<Vector2> worldTiles = new List<Vector2>();
     #endregion
 
     private void Start()
@@ -69,16 +65,16 @@ public class TerrainGeneration : MonoBehaviour
                 Sprite tileSprite;
                 if(y < height - dirtLayerHeigt)
                 {
-                    tileSprite = stone;                    
+                    tileSprite = tileAtlas.stone.tileSprite;
                 }
                 else if(y < height - 1)
                 {
-                    tileSprite = dirt;
+                    tileSprite = tileAtlas.dirt.tileSprite;
                 }
                 else
                 {
                     //Terrain top Layer
-                    tileSprite = grass;                    
+                    tileSprite = tileAtlas.grass.tileSprite;                    
                 }
 
                 if (generateCaves)
@@ -133,19 +129,19 @@ public class TerrainGeneration : MonoBehaviour
         int treeHeight = Random.Range(minTreeHeight, maxTreeHeight);
         for(int i = 0; i <= treeHeight; i++)
         {
-            PlaceTile(log, x, y + i);
+            PlaceTile(tileAtlas.log.tileSprite, x, y + i);
         }
 
         //generate leaves
-        PlaceTile(leaf, x, y + treeHeight);
-        PlaceTile(leaf, x, y + treeHeight + 1);
-        PlaceTile(leaf, x, y + treeHeight + 2);
+        PlaceTile(tileAtlas.leaf.tileSprite, x, y + treeHeight);
+        PlaceTile(tileAtlas.leaf.tileSprite, x, y + treeHeight + 1);
+        PlaceTile(tileAtlas.leaf.tileSprite, x, y + treeHeight + 2);
 
-        PlaceTile(leaf, x - 1, y + treeHeight);
-        PlaceTile(leaf, x - 1, y + treeHeight + 1);
+        PlaceTile(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight);
+        PlaceTile(tileAtlas.leaf.tileSprite, x - 1, y + treeHeight + 1);
 
-        PlaceTile(leaf, x + 1, y + treeHeight);
-        PlaceTile(leaf, x + 1, y + treeHeight + 1);
+        PlaceTile(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight);
+        PlaceTile(tileAtlas.leaf.tileSprite, x + 1, y + treeHeight + 1);
     }
 
     public void PlaceTile(Sprite tileSprite, int x, int y)

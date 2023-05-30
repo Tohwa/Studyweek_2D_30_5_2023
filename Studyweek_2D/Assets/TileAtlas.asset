@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375f3c80dd82a1d438706dd799a9c4d3, type: 3}
+  m_Name: TileAtlas
+  m_EditorClassIdentifier: 
+  stone: {fileID: 11400000, guid: 3077e239d8af9d14e9586a3c16a780dd, type: 2}
+  dirt: {fileID: 11400000, guid: 5e033fc458d9ffd47a38c7fa7b8e8538, type: 2}
+  grass: {fileID: 11400000, guid: d161730ba604d5644a743d91b0ebe69e, type: 2}
+  log: {fileID: 11400000, guid: 921efd8c4db3ae24291fe43bacd27bd5, type: 2}
+  leaf: {fileID: 11400000, guid: 1c5d34b9de8c77642a574a256c0aa9cc, type: 2}
