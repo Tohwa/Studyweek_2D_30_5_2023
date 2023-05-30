@@ -27,7 +27,17 @@ public class TerrainGeneration : MonoBehaviour
     [SerializeField] private float caveFreq = 0.05f;
     [SerializeField] private float terrainFreq = 0.05f;
     [SerializeField] private float seed;
-    [SerializeField] private Texture2D noiseTexture;
+    [SerializeField] private Texture2D caveNoiseTexture;
+
+    [Header("Ore Settings")]
+    [SerializeField] private float coalRarity;
+    [SerializeField] private float ironRarity;
+    [SerializeField] private float goldRarity;
+    [SerializeField] private float diamondRarity;
+    [SerializeField] private Texture2D coalSpread;
+    [SerializeField] private Texture2D ironSpread;
+    [SerializeField] private Texture2D goldSpread;
+    [SerializeField] private Texture2D diamondSpread;
 
     private GameObject[] worldChunks;
     private List<Vector2> worldTiles = new List<Vector2>();
@@ -36,7 +46,11 @@ public class TerrainGeneration : MonoBehaviour
     private void Start()
     {
         seed = Random.Range(-10000, 10000);
-        GenerateNoiseTexture();
+        GenerateNoiseTexture(caveFreq, caveNoiseTexture);
+        GenerateNoiseTexture(coalRarity, coalSpread);
+        GenerateNoiseTexture(ironRarity, ironSpread);
+        GenerateNoiseTexture(goldRarity, goldSpread);
+        GenerateNoiseTexture(diamondRarity, diamondSpread);
         CreateChunks();
         GenerateTerrain();
     }
@@ -79,7 +93,7 @@ public class TerrainGeneration : MonoBehaviour
 
                 if (generateCaves)
                 {
-                    if (noiseTexture.GetPixel(x, y).r > surfaceValue)
+                    if (caveNoiseTexture.GetPixel(x, y).r > surfaceValue)
                     {
                         PlaceTile(tileSprite, x, y);
                     }
@@ -105,7 +119,7 @@ public class TerrainGeneration : MonoBehaviour
         }
     }
 
-    public void GenerateNoiseTexture()
+    public void GenerateNoiseTexture(float frequency, Texture2D noiseTexture)
     {
         noiseTexture = new Texture2D(worldSize, worldSize);
 
@@ -113,7 +127,7 @@ public class TerrainGeneration : MonoBehaviour
         {
             for (int y = 0; y < noiseTexture.height; y++)
             {
-                float v = Mathf.PerlinNoise((x + seed) * caveFreq, (y + seed) * caveFreq);
+                float v = Mathf.PerlinNoise((x + seed) * frequency, (y + seed) * frequency);
                 noiseTexture.SetPixel(x, y, new Color(v, v, v));
             }
         }
